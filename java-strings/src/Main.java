@@ -24,4 +24,19 @@ public class Main {
         }
         return alphabet.length() == sb.length();
     }
+
+    public static boolean DetectPangram2(String sentence) {
+        for (char c = 'a'; c <= 'z'; c++) {
+            if (!sentence.toLowerCase().contains("" + c)) return false;
+        }
+        return true;
+    }
+
+    public static boolean DetectPangram3(String sentence) {
+        return sentence.chars()
+                .map(Character::toLowerCase)
+                .filter(Character::isAlphabetic)
+                .distinct()
+                .count() == 26;
+    }
 }
