@@ -2,8 +2,12 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        //int res = sum(42);
-        // System.out.println(res);
+
+    }
+
+    public static long findNextSquare(long sq) {
+        long root = (long) Math.sqrt(sq);
+        return root * root == sq ? (root + 1) * (root + 1) : -1;
     }
 
     /**
@@ -45,4 +49,6 @@ public class Main {
     public static int findShort(String s) {
         return Stream.of(s.split(" ")).mapToInt(String::length).min().getAsInt();
     }
+
+
 }
