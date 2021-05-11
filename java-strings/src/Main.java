@@ -1,7 +1,9 @@
+import java.util.stream.Stream;
+
 public class Main {
     public static void main(String[] args) {
-        boolean res = DetectPangram("The quick brown fox jumps over the lazy dog.");
-        System.out.println(res);
+        //int res = sum(42);
+        // System.out.println(res);
     }
 
     /**
@@ -38,5 +40,9 @@ public class Main {
                 .filter(Character::isAlphabetic)
                 .distinct()
                 .count() == 26;
+    }
+
+    public static int findShort(String s) {
+        return Stream.of(s.split(" ")).mapToInt(String::length).min().getAsInt();
     }
 }
