@@ -1,12 +1,23 @@
+import java.util.Arrays;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(isIsogram("moOse"));
-        Stream<String> res = Stream.of("moOse".split("")).distinct();
-        res.forEach(e -> {
-            System.out.print(e);
-        });
+        int[] res = deleteNth(new int[]{1, 2, 3, 1, 1, 2, 1, 2, 3, 3, 2, 4, 5, 3, 1}, 3);
+        Arrays.stream(res).forEach(e -> System.out.println(e));
+        // System.out.println(res);
+    }
+
+    public static int[] deleteNth(int[] elements, int maxOccurrences) {
+
+        return Arrays.stream(elements)
+                .distinct()
+                .mapToObj(e -> Arrays.stream(elements).filter(el -> el == e)
+                        .limit(maxOccurrences))
+                .reduce((a, b) -> IntStream.concat(a, b))
+                .orElse(IntStream.of(new int[]{}))
+                .toArray();
     }
 
     public static boolean isIsogram(String str) {
