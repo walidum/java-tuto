@@ -2,7 +2,15 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(isIsogram("moOse"));
+        Stream<String> res = Stream.of("moOse".split("")).distinct();
+        res.forEach(e -> {
+            System.out.print(e);
+        });
+    }
 
+    public static boolean isIsogram(String str) {
+        return str.toLowerCase().chars().distinct().count() == str.length();
     }
 
     public static long findNextSquare(long sq) {
