@@ -4,6 +4,19 @@ import java.util.logging.Logger;
 
 public class MainCollections {
     public static void main(String[] args) {
+        String tes = "WALID";
+        String reversedString = new StringBuilder(tes).reverse().toString();
+        System.out.println(getXO("Xxxxertr34"));
+    }
+
+    public static boolean getXO(String str) {
+
+        long nbo = str.chars().filter(e -> Character.toLowerCase(e) == 'o').count();
+        long nbx = str.chars().filter(e -> Character.toLowerCase(e) == 'x').count();
+        return (nbo == 0 && nbx == 0) || nbx == nbo;
+    }
+
+    private static void Maps() {
         Logger log = Logger.getLogger(MainCollections.class.getName());
 
         HashMap<Integer, String> hashmap = new HashMap<>();
